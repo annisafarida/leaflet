@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<style> #mapid { height: 500px; } </style>
+</head>
+<body>
+<div id="mapid"></div>
+<script>
+// koordinate dalam latitude, longitude dan 13 adalah zoom
+//koordinat lihat digeoplaner
+// tilelayer bisa diisi dengan openstreetmap 
+var mymap = L.map('mapid').setView([-7.79558, 110.36949], 13);
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(mymap);
+
+//menambahkan popup 
+var marker = L.marker([-7.76506, 110.37301]).addTo(mymap);
+marker.bindPopup("<b>Halo!Saya di Teknik Geodesi</b>").openPopup();
+</script>
+</body>
+</html>
